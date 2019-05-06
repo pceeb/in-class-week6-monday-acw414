@@ -68,11 +68,11 @@ would you change in our program?
 has only one column. What error message will be generated?
 
         Write you answer here: Traceback (most recent call last):
-	```
-  File "Mergefiles.py", line 34, in <module>
+
+File "Mergefiles.py", line 34, in <module>
     MasterList[RecordNum] += ('\t' + ElementList[1]) # += adding instead of replacing
 IndexError: list index out of range
-```
+
 	
 4. Our program split lines of input files (except the first file) into elements
 that are tab delimitated. However, data could be split by `,` or many other
@@ -81,6 +81,7 @@ provide by the user. Using what you learn about `sys.argv` in this class`.
 Write a variable that reads a delimiter (e.g ',') provided as the first input file.
 
         Write your code here: 
+
 ```
 #!/usr/bin/env python
 Usage = """
