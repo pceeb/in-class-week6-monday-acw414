@@ -70,7 +70,7 @@ has only one column. What error message will be generated?
         Traceback (most recent call last): 
 		File "Mergefiles.py", line 34, in <module>
    		MasterList[RecordNum] += ('\t' + ElementList[1]) # += adding instead of replacing
-	IndexError: list index out of range
+		IndexError: list index out of range
 
 	
 4. Our program split lines of input files (except the first file) into elements
