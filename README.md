@@ -67,8 +67,9 @@ would you change in our program?
 3. Let’s suppose that the third file that the user provides as input
 has only one column. What error message will be generated?
 
-        Write you answer here: Traceback (most recent call last): File "Mergefiles.py", line 34, in <module>
-    MasterList[RecordNum] += ('\t' + ElementList[1]) # += adding instead of replacing
+        Traceback (most recent call last): 
+		File "Mergefiles.py", line 34, in <module>
+   		MasterList[RecordNum] += ('\t' + ElementList[1]) # += adding instead of replacing
 	IndexError: list index out of range
 
 	
