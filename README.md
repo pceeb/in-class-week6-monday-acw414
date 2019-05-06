@@ -8,54 +8,53 @@ would you change in our program?
         What will be the new code?: if LineNumber > 16
 
         Write the new code here: 
+	#!/usr/bin/env python 
+	Usage = 
+	"""
+	Mergefiles.py - version 1.0
+	Convert a series of X Y tab-delimited files
+	to X Y Y Y format and print them to the screen.
+	Usage: python Mergefiles.py *.txt > combinedfile.dat
+	"""
 
-#!/usr/bin/env python
-Usage = """
-Mergefiles.py - version 1.0
-Convert a series of X Y tab-delimited files
-to X Y Y Y format and print them to the screen.
-Usage:
-        python Mergefiles.py *.txt > combinedfile.dat
-"""
+	import sys
+	import re
 
-import sys
-import re
-
-if len(sys.argv) < 2:
-	print Usage
-else:
-	FileList= sys.argv[1:]
-	FileNum = 0
-	MasterList = []
-	Header = "lambda"
-	for InfileName in FileList: # statement done one per line
-		Header += "\t" + re.sub('.txt','', InfileName)
-		Infile = open(InfileName, 'r')
-		# The line number within each file, resets for each file
-		LineNumber = 0
-		RecordNum = 0 # The record number within the table
-		for line in Infile:
-			if LineNumber > 16: #skipe first line
-				Line=line.strip('\n')
-				if FileNum == 0:
-					MasterList.append(Line)
-				else:
-					ElementList = Line.split('\t')
-					if len(ElementList) > 0:
-						MasterList[RecordNum] += ('\t' + ElementList[1]) # += adding instead of replacing
-						RecordNum += 1
+	if len(sys.argv) < 2:
+		print Usage
+	else:
+		FileList= sys.argv[1:]
+		FileNum = 0
+		MasterList = []
+		Header = "lambda"
+		for InfileName in FileList: # statement done one per line
+			Header += "\t" + re.sub('.txt','', InfileName)
+			Infile = open(InfileName, 'r')
+			# The line number within each file, resets for each file
+			LineNumber = 0
+			RecordNum = 0 # The record number within the table
+			for line in Infile:
+				if LineNumber > 16: #skipe first line
+					Line=line.strip('\n')
+					if FileNum == 0:
+						MasterList.append(Line)
 					else:
-						sys.stderr.write("Line %d not XY format in file %s\n" % (LineNumber,InfileName))
-			LineNumber += 1
-		Infile.close()
-		FileNum += 1 # the last stament in the file loop
+						ElementList = Line.split('\t')
+						if len(ElementList) > 0:
+							MasterList[RecordNum] += ('\t' + ElementList[1]) # += adding instead of replacing
+							RecordNum += 1
+						else:
+							sys.stderr.write("Line %d not XY format in file %s\n" % (LineNumber,InfileName))
+				LineNumber += 1
+			Infile.close()
+			FileNum += 1 # the last stament in the file loop
 
-	print(Header)
-	for Item in MasterList:
-		print(Item)
+		print(Header)
+		for Item in MasterList:
+			print(Item)
 
-	sys.stderr.write("Converted %d file(s)\n" % FileNum)
-
+		sys.stderr.write("Converted %d file(s)\n" % FileNum)
+	
 2. would happen if we don’t included `import sys` in our program?
 
         Write you answer here: It would produce an error message because the term 'sys' has not been defined: 
