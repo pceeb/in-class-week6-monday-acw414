@@ -58,7 +58,7 @@ would you change in our program?
 	```
 2. would happen if we don’t included `import sys` in our program?
 
-        Write you answer here: It would produce an error message because the term 'sys' has not been defined: 
+        It would produce an error message because the term 'sys' has not been defined: 
                 Traceback (most recent call last):
                         File "Mergefiles.py", line 12, in <module>
                         if len(sys.argv) < 2:
